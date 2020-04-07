@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          elevation: 10,
+         
           title: Text('TikTok'),
           backgroundColor: Colors.purpleAccent,
         ),
@@ -19,7 +22,12 @@ class MyApp extends StatelessWidget {
               DrawerHeader(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                    colors: <Color>[Colors.deepPurple, Colors.orangeAccent],
+                    colors: <Color>[
+                      Colors.deepPurple, 
+                      Colors.blueAccent,
+                      Colors.orangeAccent,
+                    
+                    ],
                   )),
                   child: Container(
                     child: Column(
@@ -75,17 +83,17 @@ class CustomListTile extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Icon(icon),
+                  Icon(icon, color: Colors.purple),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      text,
-                      style: TextStyle(fontSize: 16.0),
+                      text, 
+                      style: TextStyle(fontSize: 16.0,),
                     ),
                   )
                 ],
               ),
-              Icon(Icons.arrow_right)
+              Icon(Icons.arrow_right, color: Colors.orangeAccent,)
             ],
           ),
         ),
