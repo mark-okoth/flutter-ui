@@ -75,7 +75,7 @@ class CustomListTile extends StatelessWidget {
         ),
           child: InkWell(
         onTap: onTap,
-        splashColor: Colors.deepOrangeAccent,
+        splashColor: Colors.blueAccent,
         child: Container(
           height: 50,
           child: Row(
