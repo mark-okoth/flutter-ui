@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import './profile.dart';
 
 void main() {
   runApp(MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           elevation: 10,
-         
           title: Text('TikTok'),
           backgroundColor: Colors.purpleAccent,
         ),
@@ -20,33 +19,40 @@ class MyApp extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               DrawerHeader(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: <Color>[
-                      Colors.deepPurple, 
-                      Colors.blueAccent,
-                      Colors.orangeAccent,
-                    
-                    ],
-                  )),
-                  child: Container(
-                    child: Column(
-                      children: <Widget>[
-                        Material(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: <Color>[
+                    Colors.deepPurple,
+                    Colors.blueAccent,
+                    Colors.orangeAccent,
+                  ],
+                )),
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Material(
                           elevation: 10,
                           borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                          child: Padding(padding: EdgeInsets.all(8.0),
-                          child: Image.asset('images/man.png', width: 80, height: 80,),
-                          )
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              'images/man.png',
+                              width: 80,
+                              height: 80,
+                            ),
+                          )),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'My Profile',
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
-                        Padding(padding: EdgeInsets.all(8.0),
-                        child: Text('My Profile', style: TextStyle(color:Colors.white, fontSize: 20.0) ,),
-                        )
-                      ],
-                    ),
-                  ),),
-                  
-              CustomListTile(Icons.person, 'About Me', () {}),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              CustomListTile(Icons.person, 'About Me', () => {}),
               CustomListTile(
                   Icons.notification_important, 'Notification', () {}),
               CustomListTile(Icons.settings, 'Settings', () {}),
@@ -54,6 +60,28 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
+        body: Column(children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Card(
+              elevation: 0,
+              child: Text(
+                'this is the text are of my dummy app that im practising to learn flutter',
+                style: TextStyle(fontSize: 18.0),
+              ),
+            ),
+          ),
+          Center(
+            child: RaisedButton(
+                splashColor: Colors.deepPurpleAccent,
+                child: Text(
+                  'Next route',
+                  style: TextStyle(color: Colors.white, fontSize: 18.0),
+                ),
+                color: Colors.purpleAccent,
+                onPressed: () {}),
+          ),
+        ]),
       ),
     );
   }
@@ -70,34 +98,39 @@ class CustomListTile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
       child: Container(
-        decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.purple.shade100) )
-        ),
+          decoration: BoxDecoration(
+              border:
+                  Border(bottom: BorderSide(color: Colors.purple.shade100))),
           child: InkWell(
-        onTap: onTap,
-        splashColor: Colors.blueAccent,
-        child: Container(
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(
+            onTap: onTap,
+            splashColor: Colors.blueAccent,
+            child: Container(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Icon(icon, color: Colors.purple),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      text, 
-                      style: TextStyle(fontSize: 16.0,),
-                    ),
+                  Row(
+                    children: <Widget>[
+                      Icon(icon, color: Colors.purple),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          text,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Icon(
+                    Icons.arrow_right,
+                    color: Colors.orangeAccent,
                   )
                 ],
               ),
-              Icon(Icons.arrow_right, color: Colors.orangeAccent,)
-            ],
-          ),
-        ),
-      )),
+            ),
+          )),
     );
   }
 }
